@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon server.js",
+    "start": "nodemon index.js",
+    "socket": "nodemon /socket/socket.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \" npm run server\" \" npm run client \""
   },

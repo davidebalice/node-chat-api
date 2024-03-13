@@ -2,6 +2,14 @@ const { model, Schema } = require("mongoose");
 
 const userSchema = new Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
+    surname: {
+      type: String,
+      required: true,
+    },
     userName: {
       type: String,
       required: true,
@@ -15,7 +23,7 @@ const userSchema = new Schema(
       required: true,
       select: false,
     },
-    image: {
+    photo: {
       type: String,
       required: true,
     },
