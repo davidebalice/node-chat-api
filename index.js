@@ -19,7 +19,7 @@ app.use("/api/chat", chatRoute);
 
 const PORT = process.env.PORT || 8000;
 app.get("/", (req, res) => {
-  res.send("This is from backend Sever");
+  res.send("Backend Sever");
 });
 
 databaseConnect();

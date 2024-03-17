@@ -62,9 +62,10 @@ module.exports.getFriends = async (req, res) => {
           msgInfo: lmsg,
         },
       ];
+      console.log("friendGet[i]");
+      console.log(friendGet[i]);
     }
 
-    // const filter = friendGet.filter(d=>d.id !== myId );
     res.status(200).json({ success: true, friends: fnd_msg });
   } catch (error) {
     res.status(500).json({
@@ -160,10 +161,11 @@ module.exports.ImageMessageSend = (req, res) => {
 
   form.parse(req, (err, fields, files) => {
     const { senderName, reseverId, imageName } = fields;
-
-    const newPath = __dirname + `../../../frontend/public/image/${imageName}`;
     files.image.originalFilename = imageName;
 
+    const newPath =
+      __dirname + `../../uploads/photo/${files.image.originalFilename}`;
+    
     try {
       fs.copyFile(files.image.filepath, newPath, async (err) => {
         if (err) {
@@ -240,9 +242,14 @@ module.exports.delivaredMessage = async (req, res) => {
     });
 };
 
+module.exports.getUserPhoto = async (req, res) => {
+  const filename = req.params.filename;
+  const filePath = path.join(process.env.FILE_PATH, "uploads/users/", filename);
+  res.sendFile(filePath);
+};
+
 module.exports.getPhoto = async (req, res) => {
   const filename = req.params.filename;
-  console.log(filename);
-  const filePath = path.join(process.env.FILE_PATH, "uploads/", filename);
+  const filePath = path.join(process.env.FILE_PATH, "uploads/photo/", filename);
   res.sendFile(filePath);
 };
