@@ -62,15 +62,13 @@ module.exports.getFriends = async (req, res) => {
           msgInfo: lmsg,
         },
       ];
-      console.log("friendGet[i]");
-      console.log(friendGet[i]);
     }
 
     res.status(200).json({ success: true, friends: fnd_msg });
   } catch (error) {
     res.status(500).json({
       error: {
-        errorMessage: "Internal Sever Error",
+        errorMessage: "Internal Server Error",
       },
     });
   }

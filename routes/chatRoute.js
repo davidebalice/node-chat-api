@@ -21,4 +21,5 @@ router.post("/delivared-message", authMiddleware, delivaredMessage);
 router.get("/images/:filename", authMiddleware, getUserPhoto);
 router.get("/photo/:filename", authMiddleware, getPhoto);
 
+
 module.exports = router;
