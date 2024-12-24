@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "socket": "nodemon /socket/socket.js",
+    "start": "node index.js",
+    "socket": "node ./socket/socket.js",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \" npm run server\" \" npm run client \""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "Davide Balice",
@@ -15,6 +15,7 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.1",
+    "chat-app": "file:",
     "concurrently": "^7.0.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
